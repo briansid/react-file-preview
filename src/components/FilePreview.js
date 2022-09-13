@@ -19,7 +19,11 @@ export default function FileInput({ children: file }) {
       case "image/png":
       case "image/jpeg":
         let src = URL.createObjectURL(file);
-        return <img src={src} alt="Input" />;
+        return (
+          <div>
+            <img src={src} alt="Input" />
+          </div>
+        );
 
       default:
         return <p>`File type: ${file.type} is not supported`</p>;
