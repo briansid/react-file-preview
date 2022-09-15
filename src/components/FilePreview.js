@@ -7,7 +7,9 @@ export default function FileInput({ children: file }) {
   function fileSwitcher() {
     switch (file.type) {
       case "application/pdf":
-        return <PdfView file={file} />;
+        let url = URL.createObjectURL(new Blob([file], { type: file.type }));
+        console.log(url);
+        return <PdfView file={url} />;
       case "text/plain":
         let reader = new FileReader();
         reader.readAsText(file);
